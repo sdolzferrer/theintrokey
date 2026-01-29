@@ -75,15 +75,15 @@ Arquitectura lógica:
 ## 6. Preparación del entorno
 
 Crear un directorio de trabajo:
-
+```
 mkdir proyecto_redmine  
 cd proyecto_redmine
-
+```
 Comprobar Docker y Docker Compose:
-
+```
 docker --version  
 docker compose version
-
+```
 ---
 
 ## 7. Archivo docker-compose.yml
@@ -91,7 +91,7 @@ docker compose version
 El despliegue se realizará mediante Docker Compose.
 
 Ejemplo de archivo `docker-compose.yml`:
-
+```
 version: "3.8"
 
 services:
@@ -131,19 +131,19 @@ volumes:
 
 networks:
   redmine_net:
-
+```
 ---
 
 ## 8. Despliegue de la aplicación
 
 Iniciar el proyecto:
-
+```
 docker compose up -d
-
+```
 Comprobar el estado:
-
+```
 docker compose ps
-
+```
 El primer arranque puede tardar varios minutos.
 
 ---

@@ -71,13 +71,17 @@ Componentes:
 
 Comprobar versiones:
 
+```
 docker --version  
 docker compose version
+```
 
 Crear un directorio de trabajo:
 
+```
 mkdir proyecto_glpi  
 cd proyecto_glpi
+```
 
 ---
 
@@ -86,7 +90,7 @@ cd proyecto_glpi
 El despliegue se realizará mediante Docker Compose.
 
 Ejemplo de archivo `docker-compose.yml`:
-
+```
 version: "3.8"
 
 services:
@@ -123,19 +127,20 @@ volumes:
 
 networks:
   glpi_net:
+```
 
 ---
 
 ## 8. Despliegue de la aplicación
 
 Para iniciar el proyecto:
-
+```
 docker compose up -d
-
+```
 Comprobar que los contenedores están en ejecución:
-
+```
 docker compose ps
-
+```
 ---
 
 ## 9. Acceso a GLPI
