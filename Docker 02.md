@@ -11,6 +11,7 @@ En este tema se trabajará con la línea de comandos de Docker, que es la herram
 Docker se basa en una arquitectura cliente-servidor.
 
 El Docker Engine es el servicio que se ejecuta en segundo plano y se encarga de crear, ejecutar y gestionar contenedores.  
+
 El Docker CLI es la interfaz de línea de comandos que permite al usuario comunicarse con el Docker Engine.
 
 Cuando se ejecuta un comando como `docker run`, la CLI envía la orden al daemon de Docker, que realiza la acción solicitada.
