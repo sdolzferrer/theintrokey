@@ -29,7 +29,9 @@ Un Dockerfile está compuesto por instrucciones escritas en mayúsculas, una por
 
 Ejemplo mínimo de Dockerfile:
 
+```
 FROM nginx
+```
 
 Cada Dockerfile debe comenzar siempre con la instrucción `FROM`, que indica la imagen base sobre la que se construirá la nueva imagen.
 
@@ -43,7 +45,9 @@ Define la imagen base.
 
 Ejemplo:
 
+```
 FROM ubuntu
+```
 
 ---
 
@@ -55,8 +59,10 @@ Se utiliza normalmente para instalar paquetes o configurar el sistema.
 
 Ejemplo:
 
+```
 RUN apt update  
 RUN apt install -y nginx
+```
 
 ---
 
@@ -66,7 +72,9 @@ Copia archivos o directorios desde el sistema anfitrión al interior de la image
 
 Ejemplo:
 
+```
 COPY index.html /var/www/html/
+```
 
 ---
 
@@ -84,7 +92,9 @@ Define el directorio de trabajo dentro del contenedor.
 
 Ejemplo:
 
+```
 WORKDIR /app
+```
 
 ---
 
@@ -94,7 +104,9 @@ Define el comando que se ejecutará cuando el contenedor se inicie.
 
 Ejemplo:
 
+```
 CMD ["nginx", "-g", "daemon off;"]
+```
 
 Solo puede haber una instrucción CMD activa.
 
@@ -104,13 +116,17 @@ Solo puede haber una instrucción CMD activa.
 
 Para construir una imagen a partir de un Dockerfile se utiliza el comando:
 
+```
 docker build -t nombre_imagen .
+```
 
 El punto indica el contexto de construcción, normalmente el directorio actual.
 
 Para comprobar que la imagen se ha creado:
 
+```
 docker images
+```
 
 ---
 
@@ -118,11 +134,15 @@ docker images
 
 Una vez construida la imagen, se puede ejecutar un contenedor:
 
+```
 docker run nombre_imagen
+```
 
 O en segundo plano:
 
+```
 docker run -d -p 8080:80 nombre_imagen
+```
 
 ---
 
@@ -149,7 +169,9 @@ Algunas buenas prácticas recomendadas son:
 
 Ejemplo de imagen ligera:
 
+```
 FROM nginx:alpine
+```
 
 ---
 
@@ -157,9 +179,11 @@ FROM nginx:alpine
 
 Ejemplo de Dockerfile para un servidor web sencillo:
 
+```
 FROM nginx:alpine  
 COPY index.html /usr/share/nginx/html  
 CMD ["nginx", "-g", "daemon off;"]
+```
 
 Este Dockerfile crea una imagen funcional en muy pocas líneas.
 

@@ -56,11 +56,13 @@ Cada **servicio** representa un contenedor.
 
 Ejemplo de servicio web:
 
+```
 services:
   web:
     image: nginx
     ports:
       - "8080:80"
+```
 
 Docker Compose se encarga de crear el contenedor, la red y los enlaces necesarios.
 
@@ -71,6 +73,7 @@ Docker Compose se encarga de crear el contenedor, la red y los enlaces necesario
 Ejemplo de aplicación con web y base de datos:
 
 services:
+```
   web:
     image: nginx
     ports:
@@ -80,7 +83,7 @@ services:
     image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
-
+```
 Ambos servicios se comunican automáticamente a través de la red creada por Docker Compose.
 
 ---
@@ -105,6 +108,7 @@ Docker Compose permite definir volúmenes de forma sencilla.
 Ejemplo:
 
 services:
+```
   web:
     image: nginx
     volumes:
@@ -112,7 +116,7 @@ services:
 
 volumes:
   datos_web:
-
+```
 Los volúmenes se crean automáticamente si no existen.
 
 ---
@@ -120,21 +124,21 @@ Los volúmenes se crean automáticamente si no existen.
 ## 8. Comandos principales de Docker Compose
 
 Para iniciar la aplicación:
-
+```
 docker compose up
-
+```
 Para iniciar en segundo plano:
-
+```
 docker compose up -d
-
+```
 Para detener y eliminar los contenedores:
-
+```
 docker compose down
-
+```
 Para ver el estado de los servicios:
-
+```
 docker compose ps
-
+```
 ---
 
 ## 9. Variables de entorno
@@ -142,12 +146,12 @@ docker compose ps
 Docker Compose permite definir variables de entorno para configurar servicios.
 
 Ejemplo:
-
+```
 environment:
   MYSQL_DATABASE: app
   MYSQL_USER: user
   MYSQL_PASSWORD: pass
-
+```
 Esto facilita la configuración sin modificar imágenes.
 
 ---
@@ -155,7 +159,7 @@ Esto facilita la configuración sin modificar imágenes.
 ## 10. Ejemplo completo de Docker Compose
 
 Ejemplo de aplicación web sencilla:
-
+```
 version: "3.8"
 
 services:
@@ -168,7 +172,7 @@ services:
 
 volumes:
   datos_web:
-
+```
 Este archivo permite desplegar la aplicación con un solo comando.
 
 ---

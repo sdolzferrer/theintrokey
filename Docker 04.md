@@ -43,15 +43,21 @@ Características principales de los volúmenes:
 
 Para crear un volumen:
 
+```
 docker volume create datos_web
+```
 
 Para listar los volúmenes existentes:
 
+```
 docker volume ls
+```
 
 Para inspeccionar un volumen:
 
+```
 docker volume inspect datos_web
+```
 
 Docker se encarga de la ubicación física del volumen en el sistema anfitrión.
 
@@ -63,7 +69,9 @@ Un volumen se puede montar en un contenedor con la opción `-v`.
 
 Ejemplo:
 
+```
 docker run -d -v datos_web:/usr/share/nginx/html nginx
+```
 
 De este modo, los archivos se almacenan fuera del contenedor y se conservan aunque este se elimine.
 
@@ -75,7 +83,9 @@ Un **bind mount** enlaza directamente una carpeta del sistema anfitrión con una
 
 Ejemplo:
 
+```
 docker run -d -v /home/usuario/web:/usr/share/nginx/html nginx
+```
 
 Características de los bind mounts:
 - El usuario controla la ruta
@@ -129,7 +139,9 @@ Para permitir el acceso desde el exterior a un servicio dentro de un contenedor 
 
 Ejemplo:
 
+```
 docker run -d -p 8080:80 nginx
+```
 
 Esto conecta el puerto 8080 del host con el puerto 80 del contenedor.
 

@@ -73,29 +73,41 @@ Cada contenedor tiene un identificador único, un nombre y un estado.
 
 Para detener un contenedor:
 
+```
 docker stop ID_CONTENEDOR
+```
 
 Para iniciar un contenedor detenido:
 
+```
 docker start ID_CONTENEDOR
+```
 
 Para reiniciar un contenedor:
 
+```
 docker restart ID_CONTENEDOR
+```
 
 Para eliminar un contenedor:
 
+```
 docker rm ID_CONTENEDOR
+```
 
 ## 7. Gestión de imágenes
 
 Para listar las imágenes disponibles:
 
+```
 docker images
+```
 
 Para eliminar una imagen:
 
+```
 docker rmi ID_IMAGEN
+```
 
 Las imágenes ocupan espacio en disco, por lo que es importante mantenerlas organizadas.
 
@@ -103,7 +115,9 @@ Las imágenes ocupan espacio en disco, por lo que es importante mantenerlas orga
 
 Docker proporciona el comando:
 
+```
 docker system prune
+```
 
 Este comando elimina contenedores detenidos, imágenes no utilizadas, redes no usadas y caché de construcción. Debe usarse con precaución.
 
@@ -111,11 +125,15 @@ Este comando elimina contenedores detenidos, imágenes no utilizadas, redes no u
 
 Para obtener información detallada de un contenedor:
 
+```
 docker inspect ID_CONTENEDOR
+```
 
 Para ver los logs de un contenedor:
 
+```
 docker logs ID_CONTENEDOR
+```
 
 Los logs son fundamentales para detectar errores y problemas de funcionamiento.
 
