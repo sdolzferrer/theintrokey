@@ -1,4 +1,4 @@
-# TEMA 7 – KUBERNETES (AMPLIACIÓN)
+# TEMA 8 – KUBERNETES (AMPLIACIÓN)
 
 ## 1. Introducción a la orquestación de contenedores
 
