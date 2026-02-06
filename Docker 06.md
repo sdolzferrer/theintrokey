@@ -66,55 +66,45 @@ docker run -d \
 ```
 
 Comprobación:
-
+```
 docker ps
-
+```
 ## 6. Acceso inicial y configuración
 
 Acceder desde el navegador a:
-
+```
 http://localhost:9000
-
+```
 
 Pasos iniciales:
 
-Crear usuario administrador
-
-Seleccionar entorno Docker local
-
-Acceder al panel principal
+- Crear usuario administrador
+- Seleccionar entorno Docker local
+- Acceder al panel principal
 
 ## 7. Gestión de contenedores
 
 Desde Portainer se puede:
 
-Ver contenedores en ejecución y detenidos
-
-Arrancar y detener contenedores
-
-Eliminar contenedores
-
-Consultar logs
-
-Acceder a consola
+- Ver contenedores en ejecución y detenidos
+- Arrancar y detener contenedores
+- Eliminar contenedores
+- Consultar logs
+- Acceder a consola
 
 Comparación:
 
-CLI → docker ps
-
-Portainer → vista gráfica
+- CLI → docker ps
+- Portainer → vista gráfica
 
 ## 8. Gestión de imágenes
 
 Portainer permite:
 
-Ver imágenes descargadas
-
-Eliminar imágenes
-
-Descargar nuevas imágenes
-
-Ver etiquetas y tamaños
+- Ver imágenes descargadas
+- Eliminar imágenes
+- Descargar nuevas imágenes
+- Ver etiquetas y tamaños
 
 Esto facilita la limpieza del sistema.
 
@@ -122,11 +112,9 @@ Esto facilita la limpieza del sistema.
 
 Desde Portainer se pueden:
 
-Visualizar volúmenes
-
-Comprobar qué contenedores los usan
-
-Eliminar volúmenes no utilizados
+- Visualizar volúmenes
+- Comprobar qué contenedores los usan
+- Eliminar volúmenes no utilizados
 
 Es especialmente útil para entender la persistencia de datos.
 
@@ -134,11 +122,12 @@ Es especialmente útil para entender la persistencia de datos.
 
 Portainer no reemplaza la CLI:
 
-CLI	Portainer
-Automatizable	Visual
-Scripts	Supervisión
-Precisión	Facilidad
-Fundamental	Complementaria
+| CLI           | Portainer      |
+| ------------- | -------------- |
+| Automatizable | Visual         |
+| Scripts       | Supervisión    |
+| Precisión     | Facilidad      |
+| Fundamental   | Complementaria |
 
 Un buen administrador debe dominar ambas.
 
@@ -146,21 +135,16 @@ Un buen administrador debe dominar ambas.
 
 Usar Portainer para:
 
-Supervisión
-
-Gestión diaria
-
-Enseñanza
-
-Entornos pequeños/medios
+- Supervisión
+- Gestión diaria
+- Enseñanza
+- Entornos pequeños/medios
 
 No usar Portainer para:
 
-Automatización masiva
-
-Producción crítica sin control
-
-Sustituir conocimientos técnicos
+- Automatización masiva
+- Producción crítica sin control
+- Sustituir conocimientos técnicos
 
 ## 12. Resumen
 
@@ -169,11 +153,9 @@ Debe utilizarse como herramienta de apoyo, no como sustituto del conocimiento t�
 
 ## 13. Ejercicios
 
-Explica qué es Portainer
-
-Indica dos ventajas y dos limitaciones
-
-Compara una acción por CLI y por Portainer
+1. Explica qué es Portainer
+2. Indica dos ventajas y dos limitaciones
+3. Compara una acción por CLI y por Portainer
 
 ## 14. Referencias
 
