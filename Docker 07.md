@@ -1,4 +1,4 @@
-# TEMA 6 – BUENAS PRÁCTICAS Y SEGURIDAD EN DOCKER
+# TEMA 7 – BUENAS PRÁCTICAS Y SEGURIDAD EN DOCKER
 
 ## 1. Importancia de la seguridad en contenedores
 
