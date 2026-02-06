@@ -14,33 +14,25 @@ Portainer es una herramienta de administración gráfica para Docker que permite
 
 Proporciona:
 
-Interfaz visual clara
-
-Gestión centralizada
-
-Reducción de errores operativos
-
-Mejor comprensión del estado del sistema
+- Interfaz visual clara
+- Gestión centralizada
+- Reducción de errores operativos
+- Mejor comprensión del estado del sistema
 
 ## 3. ¿Por qué usar Portainer en administración de sistemas?
 
 Ventajas principales:
 
-Visualización inmediata del estado de Docker
-
-Gestión rápida de contenedores
-
-Ideal para supervisión y tareas rutinarias
-
-Muy útil en entornos educativos
+- Visualización inmediata del estado de Docker
+- Gestión rápida de contenedores
+- Ideal para supervisión y tareas rutinarias
+- Muy útil en entornos educativos
 
 Limitaciones:
 
-No sustituye el conocimiento técnico
-
-No reemplaza automatización avanzada
-
-No evita malas configuraciones
+- No sustituye el conocimiento técnico
+- No reemplaza automatización avanzada
+- No evita malas configuraciones
 
 ## 4. Arquitectura básica de Portainer
 
@@ -48,25 +40,22 @@ Portainer se ejecuta como un contenedor Docker más.
 
 Componentes:
 
-Contenedor Portainer
-
-Volumen para persistencia
-
-Acceso al socket Docker (/var/run/docker.sock)
-
+- Contenedor Portainer
+- Volumen para persistencia
+- Acceso al socket Docker (/var/run/docker.sock)
+  
 Gracias a este acceso, Portainer puede:
 
-ver contenedores
-
-gestionarlos
-
-supervisar recursos
+- ver contenedores
+- gestionarlos
+- supervisar recursos
 
 ## 5. Instalación de Portainer con Docker
 Creación del volumen
 docker volume create portainer_data
 
 Ejecución del contenedor Portainer
+``` 
 docker run -d \
   -p 9000:9000 \
   --name portainer \
@@ -74,7 +63,7 @@ docker run -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v portainer_data:/data \
   portainer/portainer-ce
-
+```
 
 Comprobación:
 
