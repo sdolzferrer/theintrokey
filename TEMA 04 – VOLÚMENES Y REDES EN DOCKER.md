@@ -1,222 +1,207 @@
-# TEMA 4 – VOLÚMENES Y REDES EN DOCKER
+# TEMA 4 – VOLÚMENES Y PERSISTENCIA EN DOCKER
 
-## 1. Introducción a la persistencia de datos
+## Índice
 
-Por defecto, los contenedores Docker son **efímeros**. Esto significa que cuando un contenedor se elimina, todos los datos generados en su interior se pierden.
-
-Este comportamiento no es un problema para aplicaciones sin estado, pero resulta crítico en servicios que manejan datos, como:
-- Servidores web
-- Bases de datos
-- Aplicaciones empresariales
-
-Para resolver este problema, Docker proporciona mecanismos de **persistencia de datos** y **comunicación en red** entre contenedores.
+1. Introducción a la persistencia en contenedores  
+2. Problema de los datos efímeros  
+3. Qué es un volumen Docker  
+4. Tipos de almacenamiento en Docker  
+5. Creación y gestión de volúmenes  
+6. Uso de volúmenes en contenedores  
+7. Ubicación física de los volúmenes  
+8. Diferencia entre volumen y bind mount  
+9. Buenas prácticas  
+10. Resumen  
+11. Ejercicios  
+12. Referencias  
 
 ---
 
-## 2. El problema de la persistencia en contenedores
+## 1. Introducción a la persistencia en contenedores
 
-Cuando un contenedor se detiene o elimina:
-- Su sistema de archivos desaparece
-- Los datos no se conservan
-- El servicio debe volver a configurarse
+Los contenedores están diseñados para ser:
+- ligeros
+- rápidos
+- desechables
+
+Cuando un contenedor se elimina, **todo su sistema de archivos interno desaparece**.
+
+Esto es un problema para servicios como:
+- servidores web
+- bases de datos
+- aplicaciones empresariales
+
+Estos servicios necesitan **guardar datos de forma permanente**.
+
+---
+
+## 2. Problema de los datos efímeros
 
 Ejemplo:
-Un contenedor con una base de datos perdería toda la información almacenada si no se utiliza un sistema de persistencia externo.
 
-Por ello, separar la aplicación de los datos es una buena práctica fundamental.
+1. Se crea un contenedor con un servidor web.
+2. Se suben archivos al contenedor.
+3. Se elimina el contenedor.
 
----
+Resultado:
+- Todos los archivos desaparecen.
 
-## 3. Volúmenes en Docker
-
-Un **volumen** es un mecanismo de almacenamiento gestionado por Docker que permite conservar datos fuera del ciclo de vida del contenedor.
-
-Características principales de los volúmenes:
-- Persisten aunque el contenedor se elimine
-- Son gestionados por Docker
-- Son reutilizables
-- Son adecuados para entornos de producción
+Esto ocurre porque los datos están dentro del contenedor.
 
 ---
 
-## 4. Creación y gestión de volúmenes
+## 3. Qué es un volumen Docker
 
-Para crear un volumen:
+Un volumen es un **mecanismo de almacenamiento persistente** gestionado por Docker.
 
-```
+Permite:
+- Guardar datos fuera del contenedor
+- Mantener los datos aunque el contenedor se elimine
+- Compartir datos entre contenedores
+
+Ejemplo de creación:
+
+```bash
 docker volume create datos_web
 ```
 
-Para listar los volúmenes existentes:
+---
 
+## 4. Tipos de almacenamiento en Docker
+
+Docker ofrece tres opciones principales:
+
+| Tipo | Descripción |
+|------|-------------|
+| Volumen Docker | Gestionado automáticamente por Docker |
+| Bind mount | Carpeta del sistema anfitrión |
+| tmpfs | Almacenamiento temporal en memoria |
+
+---
+
+## 5. Creación y gestión de volúmenes
+
+### Crear un volumen
+```bash
+docker volume create mi_volumen
 ```
+
+### Listar volúmenes
+```bash
 docker volume ls
 ```
 
-Para inspeccionar un volumen:
-
+### Inspeccionar volumen
+```bash
+docker volume inspect mi_volumen
 ```
+
+### Eliminar volumen
+```bash
+docker volume rm mi_volumen
+```
+
+---
+
+## 6. Uso de volúmenes en contenedores
+
+Ejemplo:
+
+```bash
+docker run -d \
+-v datos_web:/usr/share/nginx/html \
+-p 8080:80 \
+nginx
+```
+
+Aquí:
+- `datos_web` es el volumen
+- `/usr/share/nginx/html` es la carpeta dentro del contenedor
+
+Los datos del servidor web se guardarán en el volumen.
+
+---
+
+## 7. Ubicación física de los volúmenes
+
+Docker se encarga automáticamente de:
+- crear el volumen
+- elegir la ubicación
+- gestionar permisos
+- montar el volumen en el contenedor
+
+### Cuadro didáctico: ¿Dónde se guarda un volumen Docker?
+
+| Concepto | Explicación sencilla | Ejemplo / comando |
+|----------|----------------------|-------------------|
+| Volumen Docker | Espacio de almacenamiento persistente gestionado por Docker | `docker volume create datos_web` |
+| Ubicación física | Docker decide automáticamente dónde se guarda en el sistema anfitrión | `/var/lib/docker/volumes/` |
+| Carpeta real del volumen | Directorio donde se almacenan los datos del contenedor | `/var/lib/docker/volumes/datos_web/_data` |
+| Consulta de ubicación | Permite ver la ruta exacta del volumen en el sistema | `docker volume inspect datos_web` |
+| Campo importante | Indica la ruta real del volumen | `"Mountpoint"` |
+| Gestión de permisos | Docker configura automáticamente los permisos adecuados | Automático |
+| Intervención del administrador | No es necesario conocer la ruta física para usar el volumen | Solo se usa el nombre del volumen |
+
+### Comprobar la ubicación real
+
+```bash
 docker volume inspect datos_web
 ```
 
-Docker se encarga de la ubicación física del volumen en el sistema anfitrión.
+Salida típica:
 
----
-
-## 5. Uso de volúmenes en contenedores
-
-Un volumen se puede montar en un contenedor con la opción `-v`.
-
-Ejemplo:
-
-```
-docker run -d -v datos_web:/usr/share/nginx/html nginx
+```json
+"Mountpoint": "/var/lib/docker/volumes/datos_web/_data"
 ```
 
-De este modo, los archivos se almacenan fuera del contenedor y se conservan aunque este se elimine.
+---
+
+## 8. Diferencia entre volumen y bind mount
+
+| Característica | Volumen Docker | Bind mount |
+|----------------|----------------|------------|
+| Ubicación de datos | Gestionada por Docker | Definida por el usuario |
+| Ruta en el sistema | Automática | Manual |
+| Seguridad | Mayor | Depende del usuario |
+| Uso recomendado | Producción | Desarrollo o pruebas |
+| Ejemplo | `-v datos:/app` | `-v /home/user/app:/app` |
+
+### Idea clave
+
+> **Con los volúmenes, Docker decide dónde guardar los datos.  
+> Con los bind mounts, lo decide el administrador.**
 
 ---
 
-## 6. Bind mounts
+## 9. Buenas prácticas
 
-Un **bind mount** enlaza directamente una carpeta del sistema anfitrión con una ruta dentro del contenedor.
-
-Ejemplo:
-
-```
-docker run -d -v /home/usuario/web:/usr/share/nginx/html nginx
-```
-
-Características de los bind mounts:
-- El usuario controla la ruta
-- Son útiles en desarrollo
-- Menos seguros que los volúmenes
-- Dependientes del sistema anfitrión
+- Usar volúmenes para datos persistentes
+- No guardar datos importantes dentro del contenedor
+- Nombrar los volúmenes de forma clara
+- Eliminar volúmenes no utilizados
 
 ---
 
-## 7. Volúmenes vs bind mounts
+## 10. Resumen
 
-| Característica | Volúmenes | Bind mounts |
-|---------------|----------|-------------|
-| Gestión | Docker | Usuario |
-| Persistencia | Alta | Alta |
-| Portabilidad | Alta | Baja |
-| Seguridad | Alta | Media |
-| Uso recomendado | Producción | Desarrollo |
+- Los contenedores son efímeros
+- Los volúmenes permiten persistencia
+- Docker gestiona la ubicación automáticamente
+- Los volúmenes son la opción recomendada en producción
 
 ---
 
-## 8. Introducción a las redes en Docker
+## 11. Ejercicios
 
-Además del almacenamiento, los contenedores necesitan comunicarse entre sí y con el exterior.
-
-Docker utiliza **redes virtuales** para:
-- Aislar servicios
-- Permitir comunicación controlada
-- Gestionar puertos
-
-Por defecto, Docker crea una red bridge.
+1. Crea un volumen llamado `datos_prueba`
+2. Inspecciona su ubicación física
+3. Ejecuta un contenedor Nginx usando ese volumen
+4. Elimina el contenedor y comprueba si los datos siguen existiendo
+5. Explica la diferencia entre volumen y bind mount
 
 ---
 
-## 9. Tipos de redes en Docker
+## 12. Referencias
 
-Los tipos de redes más comunes son:
-
-- **bridge**: red por defecto, usada para la mayoría de los casos
-- **host**: el contenedor comparte la red del host
-- **none**: sin acceso a red
-- **overlay**: usada en entornos distribuidos (Docker Swarm)
-
-En entornos ASIR se trabaja principalmente con redes bridge.
-
----
-
-## 10. Publicación de puertos
-
-Para permitir el acceso desde el exterior a un servicio dentro de un contenedor se utiliza la publicación de puertos.
-
-Ejemplo:
-
-```
-docker run -d -p 8080:80 nginx
-```
-
-Esto conecta el puerto 8080 del host con el puerto 80 del contenedor.
-
----
-
-## 11. Comunicación entre contenedores
-
-Los contenedores conectados a la misma red pueden comunicarse entre sí utilizando su **nombre** como hostname.
-
-Ejemplo:
-- Contenedor `web`
-- Contenedor `db`
-
-El contenedor web puede acceder a la base de datos usando `db` como nombre de host.
-
----
-
-## 12. Casos de uso reales
-
-Volúmenes:
-- Bases de datos
-- Contenido web
-- Logs
-
-Redes:
-- Aplicaciones multicapa
-- Frontend y backend
-- Microservicios
-
-El uso correcto de volúmenes y redes es clave en aplicaciones reales.
-
----
-
-## 13. Buenas prácticas
-
-- No almacenar datos importantes dentro del contenedor
-- Usar volúmenes para producción
-- Usar bind mounts solo en desarrollo
-- No exponer puertos innecesarios
-- Documentar configuraciones
-
----
-
-## 14. Resumen
-
-En este tema se ha aprendido a:
-- Comprender el problema de la persistencia
-- Utilizar volúmenes Docker
-- Diferenciar volúmenes y bind mounts
-- Configurar redes Docker
-- Publicar puertos
-- Comunicar contenedores
-
-Estos conceptos son fundamentales para desplegar aplicaciones reales.
-
----
-
-## 15. Ejercicios
-
-1. Crea un volumen Docker.
-2. Monta el volumen en un contenedor Nginx.
-3. Crea un archivo dentro del contenedor.
-4. Elimina el contenedor.
-5. Vuelve a crear el contenedor y comprueba que el archivo sigue existiendo.
-6. Publica un puerto y accede al servicio desde el navegador.
-
----
-
-## 16. Referencias
-
-Docker Docs – Storage volumes  
-https://docs.docker.com/storage/volumes/
-
-Docker Docs – Bind mounts  
-https://docs.docker.com/storage/bind-mounts/
-
-Docker Docs – Networking overview  
-https://docs.docker.com/network/
+- https://docs.docker.com/storage/volumes/
+- Documentación oficial Docker
