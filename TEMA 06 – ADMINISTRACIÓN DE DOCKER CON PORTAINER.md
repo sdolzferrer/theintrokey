@@ -162,3 +162,6 @@ Debe utilizarse como herramienta de apoyo, no como sustituto del conocimiento t√
 https://www.portainer.io
 
 https://docs.docker.com
+
+## Troubleshooting
+https://docs.portainer.io/advanced/reset-admin
