@@ -16,6 +16,6 @@ Teorico práctico: Contenido + "Ejercicios" 
 
 # Referencias
 
-https://josejuansanchez.org/about/
+https://josejuansanchez.org/about/ \
 https://josejuansanchez.org/iaw/kubernetes/slides.html#(1)
 
