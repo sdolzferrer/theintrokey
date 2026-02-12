@@ -13,3 +13,8 @@ Recuperación PRESENCIAL: Lunes 16/02/2026 - Sin apuntes En papel: Docker 1-5 (T
 Preparate el examen con esto: https://github.com/sdolzferrer/theintrokey
 
 Teorico práctico: Contenido + "Ejercicios" 
+
+# Referencias
+
+https://josejuansanchez.org/about/
+
