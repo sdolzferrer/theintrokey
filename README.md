@@ -1,6 +1,12 @@
 # theintrokey
 __Administración de Sistemas Virtualizados__
 
+
+## Referals
+
+https://josejuansanchez.org/about/ \
+https://josejuansanchez.org/iaw/kubernetes/slides.html#(1)
+
 ## Research & Development
 
 https://containerd.io/
