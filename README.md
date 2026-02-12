@@ -5,6 +5,10 @@ https://aules.edu.gva.es/fp/course/modedit.php?update=9940831&return=0
 
 Tasca
 Convocatoria de examen PRESENCIAL: Lunes 02/02/2026 - Sin apuntes En papel
+Tasca
+Recuperación PRESENCIAL: Lunes 16/02/2026 - Sin apuntes En papel: Docker 1-5 (Tipo A) Tasca
+
+
 
 Preparate el examen con esto: https://github.com/sdolzferrer/theintrokey
 
