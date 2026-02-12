@@ -115,6 +115,7 @@ Kubernetes utiliza archivos **YAML** para definir recursos.
 
 Ejemplo de Deployment en YAML:
 
+```bash
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -134,7 +135,7 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
-
+```
 Aplicar el archivo:
 
 kubectl apply -f deployment.yaml
