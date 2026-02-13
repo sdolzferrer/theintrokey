@@ -235,6 +235,10 @@ Con este proyecto se cierra el curso de forma coherente y aplicada.
 GLPI – Repositorio oficial  
 https://github.com/glpi-project/glpi
 
+GLPI Docker Images
+https://hub.docker.com/r/glpi/glpi
+
+
 Docker Hub – Imagen GLPI  
 https://hub.docker.com/r/diouxx/glpi
 
