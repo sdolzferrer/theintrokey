@@ -1,5 +1,10 @@
 # TEMA 10 – PROYECTO FINAL: DESPLIEGUE DE GLPI CON DOCKER
 
+#### Guia del desarrollador para desplegar GLPI – Repositorio oficial
+https://github.com/glpi-project/glpi
+
+
+
 ## 1. Introducción al proyecto final
 
 El proyecto final del curso consiste en el **despliegue completo de una aplicación real de uso profesional** utilizando contenedores Docker, aplicando todos los conocimientos adquiridos a lo largo del curso.
@@ -232,15 +237,5 @@ Con este proyecto se cierra el curso de forma coherente y aplicada.
 
 ## 16. Referencias
 
-GLPI – Repositorio oficial  
-https://github.com/glpi-project/glpi
-
 GLPI Docker Images
 https://hub.docker.com/r/glpi/glpi
-
-
-Docker Hub – Imagen GLPI  
-https://hub.docker.com/r/diouxx/glpi
-
-Docker Docs – Docker Compose  
-https://docs.docker.com/compose/
