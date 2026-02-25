@@ -1,4 +1,4 @@
-**Bash (Bourne-Again Shell)** es un programa que permite la comunicación basada en texto entre el sistema operativo y el usuario, actuando como el intérprete de comandos predeterminado en la gran mayoría de las distribuciones de Linux 1-3. No es solo un lenguaje de programación, sino una **interfaz interactiva** diseñada para ejecutar otros programas y automatizar tareas repetitivas mediante **shell scripts**.  
+**Bash (Bourne-Again Shell)** es un programa que permite la comunicación basada en texto entre el sistema operativo y el usuario, actuando como el intérprete de comandos predeterminado en la gran mayoría de las distribuciones de Linux. No es solo un lenguaje de programación, sino una **interfaz interactiva** diseñada para ejecutar otros programas y automatizar tareas repetitivas mediante **shell scripts**.  
 A continuación se detallan sus características y funcionalidades principales según las fuentes:
 
 ### Estructura y Comandos
