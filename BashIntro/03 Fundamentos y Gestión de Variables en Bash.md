@@ -4,7 +4,7 @@ En el entorno de Bash, la **gestión de variables** es fundamental para almacena
 
 Bash clasifica las variables principalmente en dos categorías según su alcance:
 
-* **Variables locales (o de shell):** Están disponibles únicamente en la sesión de shell actual donde fueron creadas 3, 4\. No son heredadas por subprocesos o shells hijos 5, 6\. Por convención, suelen escribirse en minúsculas.  
+* **Variables locales (o de shell):** Están disponibles únicamente en la sesión de shell actual donde fueron creadas 3, 4\. No son heredadas por subprocesos o shells hijos. Por convención, suelen escribirse en minúsculas.  
 * **Variables de entorno (o globales):** Están disponibles tanto en la sesión actual como en todos los procesos e hijos generados desde ella. Se utilizan comúnmente para pasar datos de configuración a los comandos. Por convención, se escriben en mayúsculas (ej. PATH, USER).
 
 ### Manipulación Básica
@@ -35,7 +35,7 @@ Bash incluye parámetros automáticos que almacenan información útil:
 
 ### Persistencia y Configuración
 
-Las variables creadas en la línea de comandos no son persistentes; se pierden al cerrar la sesión 36\. Para hacerlas permanentes, deben añadirse a los **archivos de configuración** de inicio, como \~/.bashrc (para shells interactivos) o \~/.profile.
+Las variables creadas en la línea de comandos no son persistentes; se pierden al cerrar la sesión. Para hacerlas permanentes, deben añadirse a los **archivos de configuración** de inicio, como \~/.bashrc (para shells interactivos) o \~/.profile.
 
 ### Visualización de Variables
 
