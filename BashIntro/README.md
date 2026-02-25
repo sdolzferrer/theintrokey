@@ -1,0 +1,4 @@
+# Fundamentos y Gestión del Software de Código Abierto LPI
+
+
+Estos materiales de capacitación del Linux Professional Institute ofrecen una formación integral sobre el ecosistema de software de código abierto y las metodologías DevOps. Las fuentes detallan desde los conceptos básicos de lenguajes de programación y licencias hasta arquitecturas avanzadas en la nube y el uso de contenedores con herramientas como Docker y Podman. Se presta especial atención a la orquestación mediante Kubernetes, integrando flujos de trabajo de integración y entrega continua (CI/CD) para optimizar el desarrollo. Además, los textos abordan pilares fundamentales de la ingeniería moderna como la seguridad nativa de la nube, la gestión de bases de datos y la observabilidad a través del monitoreo y análisis de registros. En conjunto, los documentos sirven como una guía técnica para gestionar proyectos tecnológicos escalables, seguros y colaborativos.
