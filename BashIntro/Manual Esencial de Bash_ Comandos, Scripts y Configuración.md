@@ -5,7 +5,7 @@ A continuación se detallan sus características y funcionalidades principales s
 
 * **Sintaxis básica:** La mayoría de los comandos siguen la estructura: comando \[opción(es)\] \[argumento(s)\].  
 * **Tipos de comandos:** Bash distingue entre comandos **internos** (built-ins), que son parte del propio shell (como cd o export), y comandos **externos**, que son archivos ejecutables que el shell busca utilizando la variable de entorno PATH.  
-* **Comillas (Quoting):** Se utilizan para manejar espacios y caracteres especiales. Las **comillas dobles (" ")** permiten la sustitución de variables, mientras que las **comillas simples (' ')** suprimen el significado especial de todos los caracteres, tratándolos literalmente 11-13. El carácter de **escape (\\)** se usa para anular el significado especial de un solo carácter siguiente.
+* **Comillas (Quoting):** Se utilizan para manejar espacios y caracteres especiales. Las **comillas dobles (" ")** permiten la sustitución de variables, mientras que las **comillas simples (' ')** suprimen el significado especial de todos los caracteres, tratándolos literalmente. El carácter de **escape (\\)** se usa para anular el significado especial de un solo carácter siguiente.
 
 ### Gestión de Variables
 
