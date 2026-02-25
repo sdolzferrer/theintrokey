@@ -13,14 +13,14 @@ La comunicación en la línea de comandos se realiza a través de tres canales p
 Bash permite reasignar estos canales para leer desde archivos o escribir en ellos:
 
 * **Salida (\> y \>\>):** El operador \> envía la salida a un archivo, creándolo o **sobrescribiéndolo**. El operador \>\> añade la información al final del archivo sin borrar el contenido previo.  
-* **Error (2\> y 2\>\>):** Se utiliza para capturar específicamente los errores. Por ejemplo, 2\> /dev/null descarta los errores enviándolos al "bit bucket" (un archivo especial que no almacena nada).  
+* **Error (2\> y 2\>\>):** Se utiliza para capturar específicamente los errores. Por ejemplo,> /dev/null descarta los errores enviándolos al "bit bucket" (un archivo especial que no almacena nada).  
 * **Ambos (&\>):** Redirige tanto la salida estándar como el error estándar al mismo destino.  
 * **Entrada (\<):** Pasa el contenido de un archivo a un comando como si se estuviera escribiendo desde el teclado.  
 * **Documentos y cadenas "Here" (\<\< y \<\<\<):** Permiten redirigir bloques de texto de varias líneas (\<\<) o una sola línea de texto (\<\<\<) directamente a la entrada de un comando.
 
 ### Tuberías (Pipes)
 
-El operador de tubería (**|**) conecta la salida estándar de un comando directamente con la entrada estándar del siguiente. A diferencia de la redirección, los datos fluyen de izquierda a derecha entre procesos, no hacia archivos 22\. Esto permite encadenar múltiples programas para procesar información en etapas.
+El operador de tubería (**|**) conecta la salida estándar de un comando directamente con la entrada estándar del siguiente. A diferencia de la redirección, los datos fluyen de izquierda a derecha entre procesos, no hacia archivos. Esto permite encadenar múltiples programas para procesar información en etapas.
 
 ### Filtrado de Datos
 
